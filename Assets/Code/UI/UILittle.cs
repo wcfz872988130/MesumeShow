@@ -144,11 +144,11 @@ public class UILittle : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler{
 		go.GetComponent<RectTransform> ().SetAsLastSibling ();
         go.transform.localPosition += new Vector3(0, go.GetComponent<RectTransform>().rect.height * 1.5f, 0);
 		if (gameObject.name.Contains ("horse")) {
-			go.GetComponent<UIGetSome> ().setTxt (0);
+			go.GetComponent<UIGetSome> ().setTxt (1.0f);
 		}
         else if (gameObject.name.Contains("cao"))
         {
-            go.GetComponent<UIGetSome>().setTxt(1);
+            go.GetComponent<UIGetSome>().setTxt(1.1f);
 
             if (!gameObject.GetComponent<RawImage>().texture.name.Equals("transparent"))
             {
@@ -157,7 +157,7 @@ public class UILittle : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler{
 
         }
         else if (gameObject.name.Contains("tree"))
-            go.GetComponent<UIGetSome>().setTxt(2);
+            go.GetComponent<UIGetSome>().setTxt(1.2f);
 //		else if (gameObject.name.Contains ("Empty"))
 //			go.GetComponent<UIGetSome> ().setTxt (3);
     }

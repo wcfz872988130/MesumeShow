@@ -1,0 +1,17 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Code/YG_UI/YG_Little.cs">
+    <Files>
+      <File FileName="Assets/Code/YG_UI/YG_Little.cs" Line="68" Column="40" />
+      <File FileName="Assets/Code/YG_UI/YG_StartTip.cs" Line="1" Column="1" />
+      <File FileName="Assets/Code/YG_UI/YG_Resources.cs" Line="1" Column="1" />
+      <File FileName="Assets/Code/YG_UI/YGBg.cs" Line="1" Column="1" />
+      <File FileName="Assets/Code/common/UIToolTip.cs" Line="1" Column="1" />
+      <File FileName="Assets/Code/common/UIQuestionTip.cs" Line="117" Column="34" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

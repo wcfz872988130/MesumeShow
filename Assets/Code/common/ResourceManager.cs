@@ -9,5 +9,5 @@ public class ResourceManager{
 	public static bool _KillHorse=false;
 	public static bool _hasBuilt=false;
     public static int HiStage = 0;
-	public static int Score=0;
+	public static int Score=20;
 }

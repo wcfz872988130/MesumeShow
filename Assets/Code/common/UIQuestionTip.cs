@@ -10,7 +10,8 @@ public enum ResourceType {
 	HMD_Cao1,
 	HMD_Horse,
 	LZ_StoneCollection,
-	YG_Cicilization,
+	YG_Civilization,
+	YG_Algorithm,
 	Finish
 }
 
@@ -103,9 +104,17 @@ public class UIQuestionTip : MonoBehaviour {
 		{
 			
 		}
-		else if(_type==ResourceType.YG_Cicilization)
+		else if(_type==ResourceType.YG_Civilization)
 		{
-			
+			GameObject _obj = Resources.Load ("prefab/ToolTip") as GameObject;
+			GameObject _goldTime = Instantiate (_obj);
+			_goldTime.transform.SetParent (_bg.transform,false);
+			_goldTime.GetComponent<UIToolTip> ().SetContent ("提示:开启“黄金时代“,文明值、技能值增速提高增速提高15%。");
+			YG_Data.start_war = true;
+		}
+		else if(_type==ResourceType.YG_Algorithm)
+		{
+			YG_Data.Is_Cultivate = true;
 		}
 		else if(_type==ResourceType.Finish)
 		{

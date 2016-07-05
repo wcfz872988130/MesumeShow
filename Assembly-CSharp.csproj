@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{C677B2EE-4082-B239-D4AF-0564B22FFF5E}</ProjectGuid>
+    <ProjectGuid>{998BC373-9845-F285-27C0-EC92259B3515}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -59,15 +59,20 @@
      <Compile Include="Assets\Code\UI\UIDaoju.cs" />
      <Compile Include="Assets\Code\UI\UIEmptyArea.cs" />
      <Compile Include="Assets\Code\UI\UIEntry.cs" />
-     <Compile Include="Assets\Code\UI\UIFlower.cs" />
      <Compile Include="Assets\Code\UI\UILittle.cs" />
      <Compile Include="Assets\Code\UI\UIResource.cs" />
      <Compile Include="Assets\Code\UI\UISkillTree.cs" />
      <Compile Include="Assets\Code\UI\UISlider.cs" />
      <Compile Include="Assets\Code\UI\UIhelp.cs" />
+     <Compile Include="Assets\Code\YG_UI\YGBg.cs" />
+     <Compile Include="Assets\Code\YG_UI\YG_Data.cs" />
+     <Compile Include="Assets\Code\YG_UI\YG_Little.cs" />
+     <Compile Include="Assets\Code\YG_UI\YG_Resources.cs" />
+     <Compile Include="Assets\Code\YG_UI\YG_StartTip.cs" />
      <Compile Include="Assets\Code\common\MuseumFrame.cs" />
      <Compile Include="Assets\Code\common\ResourceManager.cs" />
      <Compile Include="Assets\Code\common\UIEquipment.cs" />
+     <Compile Include="Assets\Code\common\UIFlower.cs" />
      <Compile Include="Assets\Code\common\UIGetSome.cs" />
      <Compile Include="Assets\Code\common\UIHaveSome.cs" />
      <Compile Include="Assets\Code\common\UIQuestionTip.cs" />
@@ -96,22 +101,22 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="DOTween">
- <HintPath>/Users/netease/Desktop/UnityProject/MuseumShow/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+ <HintPath>/Users/netease/Desktop/UnityProject/MesumeShow/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="DOTween43">
- <HintPath>/Users/netease/Desktop/UnityProject/MuseumShow/Assets/Demigiant/DOTween/DOTween43.dll</HintPath>
+ <HintPath>/Users/netease/Desktop/UnityProject/MesumeShow/Assets/Demigiant/DOTween/DOTween43.dll</HintPath>
  </Reference>
  <Reference Include="DOTween46">
- <HintPath>/Users/netease/Desktop/UnityProject/MuseumShow/Assets/Demigiant/DOTween/DOTween46.dll</HintPath>
+ <HintPath>/Users/netease/Desktop/UnityProject/MesumeShow/Assets/Demigiant/DOTween/DOTween46.dll</HintPath>
  </Reference>
  <Reference Include="DOTween50">
- <HintPath>/Users/netease/Desktop/UnityProject/MuseumShow/Assets/Demigiant/DOTween/DOTween50.dll</HintPath>
+ <HintPath>/Users/netease/Desktop/UnityProject/MesumeShow/Assets/Demigiant/DOTween/DOTween50.dll</HintPath>
  </Reference>
  <Reference Include="O2S.Components.PDFRender4NET">
- <HintPath>/Users/netease/Desktop/UnityProject/MuseumShow/Assets/Plugins/O2S.Components.PDFRender4NET.dll</HintPath>
+ <HintPath>/Users/netease/Desktop/UnityProject/MesumeShow/Assets/Plugins/O2S.Components.PDFRender4NET.dll</HintPath>
  </Reference>
  <Reference Include="System.Drawing">
- <HintPath>/Users/netease/Desktop/UnityProject/MuseumShow/Assets/Plugins/System.Drawing.dll</HintPath>
+ <HintPath>/Users/netease/Desktop/UnityProject/MesumeShow/Assets/Plugins/System.Drawing.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

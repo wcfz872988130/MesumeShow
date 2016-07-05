@@ -16,14 +16,18 @@ public class UIGetSome : MonoBehaviour {
 	
 	}
 
-    public void setTxt(int num)
+    public void setTxt(float num)
     {
-		if (num == 0)
+		if (num == 1.0f)
 			_txt.text = "捕猎可获得肩胛骨";
-		else if (num == 1)
+		else if (num == 1.1f)
 			_txt.text = "可以开垦发展农业";
-		else if (num == 2)
+		else if (num == 1.2f)
 			_txt.text = "可以获得木材资源";
+		else if (num == 3.0f)
+			_txt.text = "矿石，可以收集矿材";
+		else if (num == 3.1f)
+			_txt.text = "肥沃的土壤，可以开垦发展农业";
     }
 
 }

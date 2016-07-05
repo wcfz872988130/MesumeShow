@@ -27,7 +27,8 @@ public class UIResource : MonoBehaviour {
     public void ClickHorse(GameObject res)
     {
         ResourceManager._chooseResource = res;
-
+		ResourceManager.Score += 5;            //level score add 5;
+		AbilityNum.Hunter += 1;                //level hunt ability number add 1;
         Debug.Log("click horse");
         Object obj = Resources.Load("prefab/Is_Operation");
         GameObject go = Instantiate(obj) as GameObject;
@@ -48,7 +49,8 @@ public class UIResource : MonoBehaviour {
         {
             if (!res.GetComponent<RawImage>().texture.name.Equals("transparent"))
                 return;
-
+			ResourceManager.Score += 5;    //level score add 5;
+			AbilityNum.Algorithm += 1;     //level cultivate ability number add 1;
             ResourceManager._chooseResource = res;
 			Object obj = Resources.Load("prefab/Is_Operation");
 			GameObject go = Instantiate(obj) as GameObject;
@@ -82,6 +84,8 @@ public class UIResource : MonoBehaviour {
 	public void ClickTree(GameObject res)
     {
         Debug.Log("click ");
+		ResourceManager.Score += 5;     //level score add 5;
+		AbilityNum.lumbering += 1;      //level lumber ability number add 1;
 		ResourceManager._chooseResource = res;
         Object obj = Resources.Load("prefab/Is_Operation");
         GameObject go = Instantiate(obj) as GameObject;
@@ -98,6 +102,7 @@ public class UIResource : MonoBehaviour {
 			res.GetComponent<RawImage> ().texture = StiltHouse;
 			StartCoroutine (ShowQuestionTip());
 			_IsFinish = false;
+			ResourceManager.Score += 10;
 		}
 	}
 

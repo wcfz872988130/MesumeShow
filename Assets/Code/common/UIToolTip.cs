@@ -10,6 +10,9 @@ public enum TipStyle
 	HMD_Build,
 	HMD_Decorate,
 	HMD_Empty,
+	YG_Start,
+	YG_metallurgy,
+	YG_Book,
     BuildHouse
 }
 
@@ -75,9 +78,9 @@ public class UIToolTip : MonoBehaviour {
 			GameObject t1 = GameObject.Find ("Canvas/bg/SkillTree/content/Skill1/Text");
 			t1.GetComponent<Text> ().color = Color.white;
 		} else if (type == TipStyle.HMD_China) {
-            GameObject go3 = GameObject.Find("Canvas/bg/SkillTree");
-            go3.SetActive(true);
-            go3.GetComponent<RectTransform>().SetAsLastSibling();
+			GameObject go3 = GameObject.Find ("Canvas/bg/SkillTree");
+			go3.SetActive (true);
+			go3.GetComponent<RectTransform> ().SetAsLastSibling ();
 			GameObject content2 = GameObject.Find ("Canvas/bg/SkillTree/content/Skill2");
 			content2.GetComponent<Button> ().interactable = true;
 			GameObject c2 = GameObject.Find ("Canvas/bg/SkillTree/content/Skill2/IconBg/RawImage");
@@ -85,21 +88,27 @@ public class UIToolTip : MonoBehaviour {
 			GameObject t2 = GameObject.Find ("Canvas/bg/SkillTree/content/Skill2/Text");
 			t2.GetComponent<Text> ().color = Color.white;
 		} else if (type == TipStyle.HMD_Decorate) {
-            GameObject go3 = GameObject.Find("Canvas/bg/SkillTree");
-            go3.SetActive(true);
-            go3.GetComponent<RectTransform>().SetAsLastSibling();
+			GameObject go3 = GameObject.Find ("Canvas/bg/SkillTree");
+			go3.SetActive (true);
+			go3.GetComponent<RectTransform> ().SetAsLastSibling ();
 			GameObject content3 = GameObject.Find ("Canvas/bg/SkillTree/content/Skill3");
 			content3.GetComponent<Button> ().interactable = true;
 			GameObject c3 = GameObject.Find ("Canvas/bg/SkillTree/content/Skill3/IconBg/RawImage");
 			c3.GetComponent<RawImage> ().texture = tx3;
 			GameObject t3 = GameObject.Find ("Canvas/bg/SkillTree/content/Skill3/Text");
 			t3.GetComponent<Text> ().color = Color.white;
-        }
-		else if (type == TipStyle.HMD_Empty)
-        {
-            UIEmptyArea empty = Transform.FindObjectOfType(typeof(UIEmptyArea)) as UIEmptyArea;
-            empty._isOpen = true;
-        }
+		} else if (type == TipStyle.HMD_Empty) {
+			UIEmptyArea empty = Transform.FindObjectOfType (typeof(UIEmptyArea)) as UIEmptyArea;
+			empty._isOpen = true;
+		} else if (type == TipStyle.YG_Start) {
+			YG_Data.start_finish = true;
+		}
+		else if(type==TipStyle.YG_Book)
+		{
+			YG_Data.Had_Finish_Book = true;
+		}
+		else if (type == TipStyle.YG_metallurgy) {
+		}
     }
 
 }
