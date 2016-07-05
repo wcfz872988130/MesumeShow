@@ -114,7 +114,9 @@ public class UIQuestionTip : MonoBehaviour {
 		}
 		else if(_type==ResourceType.YG_Algorithm)
 		{
-			YG_Data.Is_Cultivate = true;
+			Texture2D cropTexture = Resources.Load ("YG_Textures/"+YG_Data.cropname) as Texture2D;
+			GameObject cropland = GameObject.Find ("Canvas/bg/YG_Resources(Clone)/"+YG_Data.cropname);
+			cropland.GetComponent<RawImage> ().texture = cropTexture;
 		}
 		else if(_type==ResourceType.Finish)
 		{

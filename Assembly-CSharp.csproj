@@ -67,8 +67,6 @@
      <Compile Include="Assets\Code\YG_UI\YGBg.cs" />
      <Compile Include="Assets\Code\YG_UI\YG_Data.cs" />
      <Compile Include="Assets\Code\YG_UI\YG_Little.cs" />
-     <Compile Include="Assets\Code\YG_UI\YG_Resources.cs" />
-     <Compile Include="Assets\Code\YG_UI\YG_StartTip.cs" />
      <Compile Include="Assets\Code\common\MuseumFrame.cs" />
      <Compile Include="Assets\Code\common\ResourceManager.cs" />
      <Compile Include="Assets\Code\common\UIEquipment.cs" />

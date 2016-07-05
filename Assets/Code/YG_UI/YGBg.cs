@@ -24,6 +24,7 @@ public class YGBg : MonoBehaviour {
 		}
 		if(YG_Data.Had_Finish_Cultivate==1)
 		{
+			YG_Data.Had_Finish_Cultivate += 1;
 			StartCoroutine (showBook());
 		}
 		if(YG_Data.Had_Finish_Book==true)
@@ -69,7 +70,7 @@ public class YGBg : MonoBehaviour {
 
 	IEnumerator show_if_addCilivalization()
 	{
-		yield return new WaitForSeconds (10);
+		yield return new WaitForSeconds (20);
 		GameObject _obj = Resources.Load ("prefab/Is_Operation") as GameObject;
 		GameObject _addCilivalization = Instantiate (_obj);
 		_addCilivalization.transform.SetParent (gameObject.transform,false);

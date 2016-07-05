@@ -5,17 +5,13 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class YG_Little : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPointerClickHandler {
-	private bool _haveOre=false;
-	private bool _haveIron=false;
-	private Texture2D _cropsTexture;
 	// Use this for initialization
 	void Start () {
-		_cropsTexture = Resources.Load ("YG_Textures/"+gameObject.name) as Texture2D;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)
@@ -55,40 +51,38 @@ public class YG_Little : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,
 			GameObject _getTip = Instantiate (_obj);
 			_getTip.transform.SetParent (_bg.transform,false);
 			_getTip.GetComponent<UIHaveSome> ().SetText ("获得道具:矿材＋1");
-			if (!_haveOre) {
+			if (!YG_Data.Have_Ore) {
 				GameObject _bj = Resources.Load ("prefab/ToolTip")as GameObject;
 				GameObject _toolTip = Instantiate (_bj);
 				_toolTip.transform.SetParent (_bg.transform,false);
 				_toolTip.GetComponent<UIToolTip> ().SetTitle ("可以打造铁器");
 				_toolTip.GetComponent<UIToolTip> ().SetContent ("1959年绍兴城北西施山出土的大批越国或稍后的青铜器和铁质工具(青铜器有犁头、锄头" +
 					"镰刀、剑等，铁器有锄、斧、镰刀等)。");
-				_haveOre = true;
-				_haveIron = true;
+				YG_Data.Have_Ore = true;
+				YG_Data.Have_iron = true;
 			}
 			Destroy (gameObject);
 		}
 		if(gameObject.name.Contains("crops"))
 		{
 			GameObject _bg = GameObject.Find ("Canvas/bg");
-			if (!_haveIron) {
+			if (!YG_Data.Have_iron) {
 				GameObject _ob = Resources.Load ("prefab/ToolTip") as GameObject;
 				GameObject Tip_mine = Instantiate (_ob);
 				Tip_mine.transform.SetParent (_bg.transform,false);
+				Tip_mine.GetComponent<UIToolTip> ().SetTitle ("");
 				Tip_mine.GetComponent<UIToolTip> ().SetContent (@"亲爱的主人，请先根据提示发展技能，打造农具，再来开垦土壤");
 				return;
 			}
 
+			if (!gameObject.GetComponent<RawImage> ().mainTexture.name.Contains ("transparent"))
+				return;
+			YG_Data.cropname = gameObject.name;
 			GameObject _obj = Resources.Load ("prefab/Is_Operation")as GameObject;
 			GameObject _getTip = Instantiate (_obj);
 			_getTip.transform.SetParent (_bg.transform,false);
 			_getTip.GetComponent<UIQuestionTip> ().SetContent ("是否用铁器发展农业？");
 			_getTip.GetComponent<UIQuestionTip> ().SetType (ResourceType.YG_Algorithm);
-			if(YG_Data.Is_Cultivate==true)
-			{
-				
-				gameObject.GetComponent<RawImage>().texture=_cropsTexture;
-				YG_Data.Had_Finish_Cultivate +=1 ;
-			}
 		}
 	}
 }
