@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class YG_Little : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPointerClickHandler {
 	// Use this for initialization
+	private UIEquipment _instance;
 	void Start () {
+		_instance=UIEquipment.GetUIEquipement();
 	}
 	
 	// Update is called once per frame
@@ -58,6 +60,10 @@ public class YG_Little : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,
 				_toolTip.GetComponent<UIToolTip> ().SetTitle ("可以打造铁器");
 				_toolTip.GetComponent<UIToolTip> ().SetContent ("1959年绍兴城北西施山出土的大批越国或稍后的青铜器和铁质工具(青铜器有犁头、锄头" +
 					"镰刀、剑等，铁器有锄、斧、镰刀等)。");
+				Object it = Resources.Load ("prefabs/YG_Prefabs/YG_Ore");
+				GameObject equip = Instantiate (it) as GameObject;
+				_instance.Get_Props (equip);
+				ResourceManager._totalEquipement.Add (equip);
 				YG_Data.Have_Ore = true;
 				YG_Data.Have_iron = true;
 			}
@@ -78,6 +84,7 @@ public class YG_Little : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,
 			if (!gameObject.GetComponent<RawImage> ().mainTexture.name.Contains ("transparent"))
 				return;
 			YG_Data.cropname = gameObject.name;
+			YG_Data.Had_Finish_Cultivate += 1;
 			GameObject _obj = Resources.Load ("prefab/Is_Operation")as GameObject;
 			GameObject _getTip = Instantiate (_obj);
 			_getTip.transform.SetParent (_bg.transform,false);

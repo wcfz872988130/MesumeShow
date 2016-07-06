@@ -29,6 +29,7 @@ public class UISlider : MonoBehaviour {
 			Object it = Resources.Load ("prefab/china_daoju");
 			GameObject equip = Instantiate (it) as GameObject;
 			_instance.Get_Props (equip);
+			ResourceManager._totalEquipement.Add (equip);
 
 			Object obj3 = Resources.Load ("prefab/China");
 			GameObject go3 = Instantiate (obj3) as GameObject;

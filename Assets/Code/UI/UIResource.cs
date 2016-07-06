@@ -7,9 +7,11 @@ public class UIResource : MonoBehaviour {
 	public Texture StiltHouse;
 	public static bool _IsFinish = false;
     GameObject _bg;
+	ShowStage instance;
 	// Use this for initialization
 	void Start () {
         _bg = GameObject.Find("Canvas/bg");
+		instance = ShowStage.GetShowStage ();
 	}
 	
 	// Update is called once per frame
@@ -115,7 +117,9 @@ public class UIResource : MonoBehaviour {
 		go2.GetComponent<UIToolTip>().SetType(TipStyle.HMD_China);
 		go2.GetComponent<UIToolTip>().SetTitle("有新的技能可以发展");
 		go2.GetComponent<UIToolTip>().SetContent("介绍：发展技能“制陶术”；手工制作产品的出现，是人类文明史上的一个重要进步");
-        ResourceManager.HiStage += 1;
+		instance.AddStage ();
+		//_slider.GetComponent<ShowStage> ().AddStage ();
+        //ResourceManager.HiStage += 1;
         //UIBg.ChangeStage(ResourceManager.HiStage);
 	}
 

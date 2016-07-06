@@ -110,7 +110,7 @@ public class UIQuestionTip : MonoBehaviour {
 			GameObject _goldTime = Instantiate (_obj);
 			_goldTime.transform.SetParent (_bg.transform,false);
 			_goldTime.GetComponent<UIToolTip> ().SetContent ("提示:开启“黄金时代“,文明值、技能值增速提高增速提高15%。");
-			YG_Data.start_war = true;
+			_goldTime.GetComponent<UIToolTip> ().SetType (TipStyle.YG_GoldTime);
 		}
 		else if(_type==ResourceType.YG_Algorithm)
 		{

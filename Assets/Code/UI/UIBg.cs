@@ -7,18 +7,21 @@ public class UIBg : MonoBehaviour {
 	private int m_stage=0;
 	public static UIBg _Instance;
 	private static GameObject CurrentStage;
+	ShowStage instance;
 	// Use this for initialization
 	void Start () {
 		CurrentStage = GameObject.Find("Canvas/bg/ShowStage");
+		ResourceManager.HiStage = 4;
+		instance = ShowStage.GetShowStage ();
 	}
 
 	void Update()
 	{
-		if(m_stage!=ResourceManager.HiStage)
-		{
-			m_stage = ResourceManager.HiStage;
-			ChangeStage (m_stage);
-		}
+//		if(m_stage!=ResourceManager.HiStage)
+//		{
+//			m_stage = ResourceManager.HiStage;
+//			ChangeStage (m_stage);
+//		}
 	}
 
 	private UIBg()
@@ -40,24 +43,24 @@ public class UIBg : MonoBehaviour {
 		StartCoroutine (ShowQuestionTip());
 	}
 
-    public void ChangeStage(int stage)
-    {
-        switch (stage)
-        {
-		case 1:
-				StartCoroutine (ShowStage());
-			break;
-            case 2:
-				StartCoroutine (ShowStage());
-                break;
-            case 3:
-				StartCoroutine (ShowStage());
-                break;
-            case 4:
-				StartCoroutine (ShowStage());
-                break;
-        }
-    }
+//    public void ChangeStage(int stage)
+//    {
+//        switch (stage)
+//        {
+//		case 1:
+//				StartCoroutine (ShowStage());
+//			break;
+//            case 2:
+//				StartCoroutine (ShowStage());
+//                break;
+//            case 3:
+//				StartCoroutine (ShowStage());
+//                break;
+//            case 4:
+//				StartCoroutine (ShowStage());
+//                break;
+//        }
+//    }
 
 	IEnumerator ShowQuestionTip()
 	{
@@ -68,19 +71,20 @@ public class UIBg : MonoBehaviour {
 		go2.GetComponent<UIToolTip>().SetType(TipStyle.HMD_Decorate);
 		go2.GetComponent<UIToolTip>().SetTitle("有新的技能可以发展");
 		go2.GetComponent<UIToolTip>().SetContent("介绍：发展技能“装饰技术”，河姆渡刻于器物上的装饰艺术，内容以鸟为主，其次是太阳、鱼、蚕等形象和一些图案，展示河姆渡人的原始审美取向，开艺术教育之先河。");
-        ResourceManager.HiStage += 1;
+		instance.AddStage ();
+        //ResourceManager.HiStage += 1;
     }
 
-	public static IEnumerator ShowStage()
-	{
-		float m_time = 0.0f;
-		while(m_time<1.0f)
-		{
-			yield return new WaitForSeconds (0.05f);
-			m_time += 0.05f;
-			CurrentStage.GetComponent<Slider>().value+=0.0125f;
-		}
-	}
+//	public static IEnumerator ShowStage()
+//	{
+//		float m_time = 0.0f;
+//		while(m_time<1.0f)
+//		{
+//			yield return new WaitForSeconds (0.05f);
+//			m_time += 0.05f;
+//			CurrentStage.GetComponent<Slider>().value+=0.0125f;
+//		}
+//	}
 
 	IEnumerator Wait(float time)
 	{

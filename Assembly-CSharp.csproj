@@ -64,6 +64,7 @@
      <Compile Include="Assets\Code\UI\UISkillTree.cs" />
      <Compile Include="Assets\Code\UI\UISlider.cs" />
      <Compile Include="Assets\Code\UI\UIhelp.cs" />
+     <Compile Include="Assets\Code\YG_UI\ShowStage.cs" />
      <Compile Include="Assets\Code\YG_UI\YGBg.cs" />
      <Compile Include="Assets\Code\YG_UI\YG_Data.cs" />
      <Compile Include="Assets\Code\YG_UI\YG_Little.cs" />

@@ -12,6 +12,7 @@ public enum TipStyle
 	HMD_Empty,
 	YG_Start,
 	YG_metallurgy,
+	YG_GoldTime,
 	YG_Book,
     BuildHouse
 }
@@ -108,6 +109,12 @@ public class UIToolTip : MonoBehaviour {
 			YG_Data.Had_Finish_Book = true;
 		}
 		else if (type == TipStyle.YG_metallurgy) {
+			GameObject slider = GameObject.Find ("Canvas/bg/ShowStage");
+			//slider.GetComponent<ShowStage> ().AddStage ();
+		}
+		else if(type==TipStyle.YG_GoldTime)
+		{
+			YG_Data.start_war = true;
 		}
     }
 
