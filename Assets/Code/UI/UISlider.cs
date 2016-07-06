@@ -36,9 +36,28 @@ public class UISlider : MonoBehaviour {
 			go3.transform.SetParent (ResourceManager._bg.transform,false);
 
 			GameObject content3 = GameObject.Find ("Canvas/bg/SkillTree/content/Skill2");
-			content3.GetComponent<Button> ().interactable = false;
+			if (content3 !=null)
+				content3.GetComponent<Button> ().interactable = false;
+			if(content3 !=null)
+				_Instance.ShowQuestionTips();
 
-			_Instance.ShowQuestionTips ();
+			//lz
+			GameObject content4 = GameObject.Find("Canvas/bg/SkillTree_lz/content/Skill2");
+			if(content4 != null)
+				content4.GetComponent<Button>().interactable = false;
+
+			if (content4 != null)
+			{
+				Debug.Log("!=NULL");
+				Object obj2 = Resources.Load("prefab/ToolTip");
+				GameObject go2 = Instantiate(obj2) as GameObject;
+				go2.transform.SetParent(ResourceManager._bg.transform, false);
+				go2.GetComponent<UIToolTip>().SetType(TipStyle.LZ_fuhaoshu);
+				go2.GetComponent<UIToolTip>().SetTitle("新科技");
+				go2.GetComponent<UIToolTip>().SetContent("符号术");
+			}
+
+
 		}
 	}
 }

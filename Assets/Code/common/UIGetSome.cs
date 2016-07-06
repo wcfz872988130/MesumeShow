@@ -28,6 +28,10 @@ public class UIGetSome : MonoBehaviour {
 			_txt.text = "矿石，可以收集矿材";
 		else if (num == 3.1f)
 			_txt.text = "肥沃的土壤，可以开垦发展农业";
+		else if (num == 101)
+			_txt.text = "可以开垦发展农业";
+		else if (num == 102)
+			_txt.text = "可收集石材";
     }
 
 }

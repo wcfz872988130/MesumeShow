@@ -26,9 +26,19 @@ public class UIFlower : MonoBehaviour {
 
     public void ClickSkillTree()
     {
-        GameObject go3 = GameObject.Find("Canvas/bg/SkillTree");
-        go3.SetActive(true);
-        go3.GetComponent<RectTransform>().SetAsLastSibling();
+		GameObject go3 = GameObject.Find("Canvas/bg/SkillTree");
+		if (go3 != null)
+		{
+			go3.SetActive(true);
+			go3.GetComponent<RectTransform>().SetAsLastSibling();
+		}
+
+		GameObject go33 = GameObject.Find("Canvas/bg/SkillTree_lz");
+		if (go33 != null)
+		{
+			go33.SetActive(true);
+			go33.GetComponent<RectTransform>().SetAsLastSibling();
+		}
     }
 
 	public void ClickHelp()

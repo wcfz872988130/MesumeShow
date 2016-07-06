@@ -12,4 +12,13 @@ public class ResourceManager{
     public static int HiStage = 0;
 	public static int Score=20;
 	public static List<GameObject> _totalEquipement=new List<GameObject>();
+
+	//lz
+	public static int _shiCount = 0;
+
+	public static int _knowligen = 0;   //是否会李根叔
+
+	public static int _knowzhitaoshu = 0;//是否会制陶术
+
+	public static int _knowfuhaoshu = 0;
 }

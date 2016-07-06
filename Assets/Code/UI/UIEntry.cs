@@ -1,25 +1,36 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class UIEntry : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        //this.GetComponent<RectTransform>().localPosition = new Vector3(0,0,0);
+		//this.GetComponent<RectTransform>().localPosition = new Vector3(0,0,0);
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
-    public void Click()
-    {
-        Debug.Log("Entry Click");
+	//add --------------------
+	public void setText(string str)
+	{
+		Debug.Log(str);
+		Text txt = transform.FindChild("Text").GetComponent<Text>();
+		txt.text = str;
+	}
 
-        MuseumFrame.currentStep = MuseumStep.Resource;
+	public void Click()
+	{
+		Debug.Log("Entry Click");
 
-        Destroy(this.gameObject);
-    }
+		MuseumFrame.currentStep = MuseumStep.Resource;
+		//add --------------------
+		LiangzuFrame.currentStep = MuseumStep.ResourceTip;
+
+		Destroy(this.gameObject);
+	}
 
 }

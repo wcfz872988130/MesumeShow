@@ -51,6 +51,9 @@
      <Compile Include="Assets\Code\EntryUI\UIManager.cs" />
      <Compile Include="Assets\Code\EntryUI\UINewGame.cs" />
      <Compile Include="Assets\Code\EntryUI\UISelected.cs" />
+     <Compile Include="Assets\Code\Liangzu\LiangzuFrame.cs" />
+     <Compile Include="Assets\Code\Liangzu\UIResource_lz.cs" />
+     <Compile Include="Assets\Code\Liangzu\UISkillTree_lz.cs" />
      <Compile Include="Assets\Code\PDFUI\PDFReader.cs" />
      <Compile Include="Assets\Code\UI\AbilityNum.cs" />
      <Compile Include="Assets\Code\UI\UIBg.cs" />

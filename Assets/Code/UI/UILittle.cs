@@ -158,6 +158,10 @@ public class UILittle : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler{
         }
         else if (gameObject.name.Contains("tree"))
             go.GetComponent<UIGetSome>().setTxt(1.2f);
+		else if (gameObject.name.Contains("cai"))
+			go.GetComponent<UIGetSome>().setTxt(101.0f);
+		else if (gameObject.name.Contains("shi"))
+			go.GetComponent<UIGetSome>().setTxt(102.0f);
 //		else if (gameObject.name.Contains ("Empty"))
 //			go.GetComponent<UIGetSome> ().setTxt (3);
     }

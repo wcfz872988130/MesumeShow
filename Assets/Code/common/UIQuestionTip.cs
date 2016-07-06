@@ -12,7 +12,9 @@ public enum ResourceType {
 	LZ_StoneCollection,
 	YG_Civilization,
 	YG_Algorithm,
-	Finish
+	Finish,
+	LZ_shi,
+	LZ_cai
 }
 
 public class UIQuestionTip : MonoBehaviour {
@@ -121,6 +123,39 @@ public class UIQuestionTip : MonoBehaviour {
 		else if(_type==ResourceType.Finish)
 		{
 			SceneManager.LoadSceneAsync ("End");
+		}
+		else if (_type == ResourceType.LZ_shi)
+		{
+			int num = Random.Range(3, 5);
+			Destroy(ResourceManager._chooseResource);
+			ResourceManager._chooseResource = null;
+			ResourceManager._shiCount += num;
+			if (ResourceManager._shiCount >= 5)
+			{
+				LiangzuFrame.currentStep = MuseumStep.ShowGuliToolTip;
+			}
+			Object obj = Resources.Load("prefab/Get");
+			GameObject go = Instantiate(obj) as GameObject;
+			go.transform.SetParent(_bg.transform, false);
+			go.GetComponent<UIHaveSome>().SetText("获得道具:石头+" + num);
+
+			Object obj3 = Resources.Load("prefab/wood");
+			GameObject go3 = Instantiate(obj3) as GameObject;
+			go3.transform.SetParent(_bg.transform, false);
+		}
+		else if(_type == ResourceType.LZ_cai)
+		{
+			ResourceManager._chooseResource.GetComponent<RawImage>().texture = Resources.Load("Grass2/" + 1) as Texture;
+
+
+			Object obj2 = Resources.Load("prefab/ToolTip");
+			GameObject go2 = Instantiate(obj2) as GameObject;
+			go2.transform.SetParent(_bg.transform, false);
+			go2.GetComponent<UIToolTip>().SetType(0);
+			go2.GetComponent<UIToolTip>().SetTitle("新科技");
+			go2.GetComponent<UIToolTip>().SetContent("制陶术");
+
+			ResourceManager._knowzhitaoshu = 1;
 		}
     }
 

@@ -14,7 +14,11 @@ public enum TipStyle
 	YG_metallurgy,
 	YG_GoldTime,
 	YG_Book,
-    BuildHouse
+    BuildHouse,
+	LZ_Resource,
+	LZ_zhitaoshu,    //制陶术
+	LZ_CCC,
+	LZ_fuhaoshu     //符号数
 }
 
 public class UIToolTip : MonoBehaviour {
@@ -115,6 +119,29 @@ public class UIToolTip : MonoBehaviour {
 		else if(type==TipStyle.YG_GoldTime)
 		{
 			YG_Data.start_war = true;
+		}
+		else if(type == TipStyle.LZ_Resource)
+		{
+			LiangzuFrame.currentStep = MuseumStep.Resource;
+		}
+		else if (type == TipStyle.LZ_zhitaoshu)
+		{
+			ResourceManager._knowzhitaoshu = 1;
+		}
+		else if (type == TipStyle.LZ_CCC)
+		{
+			Object obj2 = Resources.Load("prefab/Result");
+			GameObject go2 = Instantiate(obj2) as GameObject;
+			go2.transform.SetParent(ResourceManager._bg.transform, false);
+			go2.GetComponent<UIResult>().SetTxt("开启耜耕阶段\n获得道具“骨耜”，可使用“骨耜”开发土壤资源");
+			GameObject c0 = GameObject.Find("Canvas/bg/SkillTree_lz/content/Skill0/IconBg/skill0Image");
+			c0.GetComponent<RawImage>().texture = tx3;
+			GameObject t0 = GameObject.Find("Canvas/bg/SkillTree_lz/content/Skill0/Text");
+			t0.GetComponent<Text>().color = Color.white;
+		}
+		else if (type == TipStyle.LZ_fuhaoshu)
+		{
+			ResourceManager._knowfuhaoshu = 1;
 		}
     }
 

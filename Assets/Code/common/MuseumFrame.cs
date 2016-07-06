@@ -7,7 +7,9 @@ public enum MuseumStep
     Entry,
     Resource,
     ShowGuliToolTip,
-    ShowBuildHouseToolTip
+    ShowBuildHouseToolTip,
+	//lz
+	ResourceTip
 }
 
 public class MuseumFrame : MonoBehaviour {
