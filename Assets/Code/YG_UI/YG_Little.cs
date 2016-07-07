@@ -7,8 +7,10 @@ using UnityEngine.UI;
 public class YG_Little : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPointerClickHandler {
 	// Use this for initialization
 	private UIEquipment _instance;
+	private UI_Manager _uimanager;
 	void Start () {
 		_instance=UIEquipment.GetUIEquipement();
+		_uimanager = UI_Manager.GetUIManager();
 	}
 	
 	// Update is called once per frame
@@ -18,8 +20,7 @@ public class YG_Little : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
-		GameObject _obj = Resources.Load ("prefab/GetBlade") as GameObject;
-		GameObject _littleTip = Instantiate (_obj);
+		GameObject _littleTip =_uimanager.LoadPrefab("GetBlade",fileAddress.Com,false);
 		_littleTip.transform.SetParent (gameObject.transform,false);
 		_littleTip.GetComponent<RectTransform> ().SetAsLastSibling ();
 		_littleTip.transform.localPosition += new Vector3(0, _littleTip.GetComponent<RectTransform>().rect.height * 1.5f, 0);
@@ -48,15 +49,10 @@ public class YG_Little : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,
 	{
 		if(gameObject.name.Contains("ore"))
 		{
-			GameObject _bg = GameObject.Find ("Canvas/bg");
-			GameObject _obj = Resources.Load ("prefab/Get")as GameObject;
-			GameObject _getTip = Instantiate (_obj);
-			_getTip.transform.SetParent (_bg.transform,false);
+			GameObject _getTip=_uimanager.LoadPrefab ("Get",fileAddress.Com,true);
 			_getTip.GetComponent<UIHaveSome> ().SetText ("获得道具:矿材＋1");
 			if (!YG_Data.Have_Ore) {
-				GameObject _bj = Resources.Load ("prefab/ToolTip")as GameObject;
-				GameObject _toolTip = Instantiate (_bj);
-				_toolTip.transform.SetParent (_bg.transform,false);
+				GameObject _toolTip = _uimanager.LoadPrefab ("ToolTip",fileAddress.Com,true);
 				_toolTip.GetComponent<UIToolTip> ().SetTitle ("可以打造铁器");
 				_toolTip.GetComponent<UIToolTip> ().SetContent ("1959年绍兴城北西施山出土的大批越国或稍后的青铜器和铁质工具(青铜器有犁头、锄头" +
 					"镰刀、剑等，铁器有锄、斧、镰刀等)。");
@@ -71,23 +67,17 @@ public class YG_Little : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,
 		}
 		if(gameObject.name.Contains("crops"))
 		{
-			GameObject _bg = GameObject.Find ("Canvas/bg");
 			if (!YG_Data.Have_iron) {
-				GameObject _ob = Resources.Load ("prefab/ToolTip") as GameObject;
-				GameObject Tip_mine = Instantiate (_ob);
-				Tip_mine.transform.SetParent (_bg.transform,false);
+				GameObject Tip_mine = _uimanager.LoadPrefab ("ToolTip",fileAddress.Com,true);
 				Tip_mine.GetComponent<UIToolTip> ().SetTitle ("");
 				Tip_mine.GetComponent<UIToolTip> ().SetContent (@"亲爱的主人，请先根据提示发展技能，打造农具，再来开垦土壤");
 				return;
 			}
-
 			if (!gameObject.GetComponent<RawImage> ().mainTexture.name.Contains ("transparent"))
 				return;
 			YG_Data.cropname = gameObject.name;
 			YG_Data.Had_Finish_Cultivate += 1;
-			GameObject _obj = Resources.Load ("prefab/Is_Operation")as GameObject;
-			GameObject _getTip = Instantiate (_obj);
-			_getTip.transform.SetParent (_bg.transform,false);
+			GameObject _getTip = _uimanager.LoadPrefab ("Is_Operation",fileAddress.Com,true);
 			_getTip.GetComponent<UIQuestionTip> ().SetContent ("是否用铁器发展农业？");
 			_getTip.GetComponent<UIQuestionTip> ().SetType (ResourceType.YG_Algorithm);
 		}

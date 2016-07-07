@@ -66,6 +66,7 @@
      <Compile Include="Assets\Code\UI\UIResource.cs" />
      <Compile Include="Assets\Code\UI\UISkillTree.cs" />
      <Compile Include="Assets\Code\UI\UISlider.cs" />
+     <Compile Include="Assets\Code\UI\UIStatusBar.cs" />
      <Compile Include="Assets\Code\UI\UIhelp.cs" />
      <Compile Include="Assets\Code\YG_UI\ShowStage.cs" />
      <Compile Include="Assets\Code\YG_UI\YGBg.cs" />
@@ -80,6 +81,7 @@
      <Compile Include="Assets\Code\common\UIQuestionTip.cs" />
      <Compile Include="Assets\Code\common\UIResult.cs" />
      <Compile Include="Assets\Code\common\UIToolTip.cs" />
+     <Compile Include="Assets\Code\common\UI_Manager.cs" />
      <Compile Include="Assets\Scripts\AnimationControl.cs" />
      <Compile Include="Assets\Scripts\Cow2Control.cs" />
      <Compile Include="Assets\Scripts\Is_Operation.cs" />

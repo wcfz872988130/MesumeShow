@@ -114,6 +114,7 @@
 'Assets/Code/common/UIQuestionTip.cs'
 'Assets/Code/common/UIResult.cs'
 'Assets/Code/common/UIToolTip.cs'
+'Assets/Code/common/UI_Manager.cs'
 'Assets/Scripts/AnimationControl.cs'
 'Assets/Scripts/Cow2Control.cs'
 'Assets/Scripts/Is_Operation.cs'

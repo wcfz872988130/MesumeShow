@@ -4,15 +4,14 @@ using System.Collections;
 
 public class UIBg : MonoBehaviour {
 	public bool _IsFinish = false;
-	private int m_stage=0;
 	public static UIBg _Instance;
-	private static GameObject CurrentStage;
+	UI_Manager _uimanager;
 	ShowStage instance;
 	// Use this for initialization
 	void Start () {
-		CurrentStage = GameObject.Find("Canvas/bg/ShowStage");
 		ResourceManager.HiStage = 4;
 		instance = ShowStage.GetShowStage ();
+		_uimanager=UI_Manager.GetUIManager();
 	}
 
 	void Update()
@@ -65,9 +64,8 @@ public class UIBg : MonoBehaviour {
 	IEnumerator ShowQuestionTip()
 	{
 		yield return StartCoroutine (Wait(1.0f));
-		Object obj2 = Resources.Load("prefab/ToolTip");
-		GameObject go2 = Instantiate(obj2) as GameObject;
-		go2.transform.SetParent(ResourceManager._bg.transform, false);
+		//string pathname = "prefab/ToolTip";
+		GameObject go2 = _uimanager.LoadPrefab ("ToolTip",fileAddress.Com,true);
 		go2.GetComponent<UIToolTip>().SetType(TipStyle.HMD_Decorate);
 		go2.GetComponent<UIToolTip>().SetTitle("有新的技能可以发展");
 		go2.GetComponent<UIToolTip>().SetContent("介绍：发展技能“装饰技术”，河姆渡刻于器物上的装饰艺术，内容以鸟为主，其次是太阳、鱼、蚕等形象和一些图案，展示河姆渡人的原始审美取向，开艺术教育之先河。");

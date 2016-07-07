@@ -5,10 +5,12 @@ using System.Collections;
 public class UISlider : MonoBehaviour {
 	private float time=0;
 	private UIBg _Instance;
+	private UI_Manager _uimanager;
 	private UIEquipment _instance = UIEquipment.GetUIEquipement ();
 	// Use this for initialization
 	void Start () {
 		_Instance = UIBg.GetUIBg ();
+		_uimanager = UI_Manager.GetUIManager ();
 	}
 	
 	// Update is called once per frame
@@ -20,24 +22,21 @@ public class UISlider : MonoBehaviour {
 		}
 		if (gameObject.GetComponent<Slider> ().value == 1) {
 			Destroy (gameObject);
-			Object obj = Resources.Load ("prefab/Get");
-			GameObject go = Instantiate (obj) as GameObject;
-			go.transform.SetParent (ResourceManager._bg.transform,false);
+			GameObject go = _uimanager.LoadPrefab ("Get",fileAddress.Com,true);
 			go.GetComponent<UIHaveSome>().SetText("获得道具:"+"陶器+1");
 			go.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (0,60);
 
-			Object it = Resources.Load ("prefab/china_daoju");
-			GameObject equip = Instantiate (it) as GameObject;
+			//Object it = Resources.Load ("prefab/china_daoju");
+			//GameObject equip = Instantiate (it) as GameObject;
+			GameObject equip=_uimanager.LoadPrefab("china_daoju",fileAddress.Com,false);
 			_instance.Get_Props (equip);
 			ResourceManager._totalEquipement.Add (equip);
 
-			Object obj3 = Resources.Load ("prefab/China");
-			GameObject go3 = Instantiate (obj3) as GameObject;
-			go3.transform.SetParent (ResourceManager._bg.transform,false);
-
-			GameObject content3 = GameObject.Find ("Canvas/bg/SkillTree/content/Skill2");
-			if (content3 !=null)
-				content3.GetComponent<Button> ().interactable = false;
+			_uimanager.LoadPrefab ("China",fileAddress.Com,true);
+			GameObject skillTree = GameObject.Find ("Canvas/bg/SkillTree");
+			GameObject content3 = skillTree.Find ("content/Skill2");
+			if (content3 != null)
+				content3.GetComponent<UISkillTree> ().changeInteractable (2);
 			if(content3 !=null)
 				_Instance.ShowQuestionTips();
 
@@ -49,9 +48,7 @@ public class UISlider : MonoBehaviour {
 			if (content4 != null)
 			{
 				Debug.Log("!=NULL");
-				Object obj2 = Resources.Load("prefab/ToolTip");
-				GameObject go2 = Instantiate(obj2) as GameObject;
-				go2.transform.SetParent(ResourceManager._bg.transform, false);
+				GameObject go2=_uimanager.LoadPrefab("ToolTip",fileAddress.Com,true);
 				go2.GetComponent<UIToolTip>().SetType(TipStyle.LZ_fuhaoshu);
 				go2.GetComponent<UIToolTip>().SetTitle("新科技");
 				go2.GetComponent<UIToolTip>().SetContent("符号术");

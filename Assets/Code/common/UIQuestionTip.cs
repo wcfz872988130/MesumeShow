@@ -18,8 +18,7 @@ public enum ResourceType {
 }
 
 public class UIQuestionTip : MonoBehaviour {
-    GameObject _bg;
-
+	UI_Manager _uiManager=UI_Manager.GetUIManager();
     ResourceType _type = ResourceType.Null;
 
     public Text _title;
@@ -27,7 +26,6 @@ public class UIQuestionTip : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        _bg = GameObject.Find("Canvas/bg");
 	}
 	
 	// Update is called once per frame
@@ -61,9 +59,7 @@ public class UIQuestionTip : MonoBehaviour {
 
 		if (_type == ResourceType.HMD_Horse)
         {
-            Object obj = Resources.Load("prefab/Get");
-            GameObject go = Instantiate(obj) as GameObject;
-            go.transform.SetParent(_bg.transform, false);
+			GameObject go = _uiManager.LoadPrefab ("Get",fileAddress.Com,true);
             go.GetComponent<UIHaveSome>().SetText("获得道具：骨头+1");
             ResourceManager._guliCount += 1;
             Destroy(ResourceManager._chooseResource);
@@ -93,14 +89,9 @@ public class UIQuestionTip : MonoBehaviour {
 			{
                 MuseumFrame.currentStep = MuseumStep.ShowBuildHouseToolTip;
 			}
-			Object obj = Resources.Load ("prefab/Get");
-			GameObject go = Instantiate (obj) as GameObject;
-			go.transform.SetParent (_bg.transform,false);
+			GameObject go = _uiManager.LoadPrefab ("Get",fileAddress.Com,true);
 			go.GetComponent<UIHaveSome>().SetText("获得道具:木材+"+num);
-
-			Object obj3 = Resources.Load ("prefab/wood");
-			GameObject go3 = Instantiate (obj3) as GameObject;
-			go3.transform.SetParent (_bg.transform,false);
+			GameObject go3 = _uiManager.LoadPrefab ("wood",fileAddress.Com,true);
 		}
 		else if(_type==ResourceType.LZ_StoneCollection)
 		{
@@ -108,9 +99,7 @@ public class UIQuestionTip : MonoBehaviour {
 		}
 		else if(_type==ResourceType.YG_Civilization)
 		{
-			GameObject _obj = Resources.Load ("prefab/ToolTip") as GameObject;
-			GameObject _goldTime = Instantiate (_obj);
-			_goldTime.transform.SetParent (_bg.transform,false);
+			GameObject _goldTime = _uiManager.LoadPrefab ("ToolTip",fileAddress.Com,true);
 			_goldTime.GetComponent<UIToolTip> ().SetContent ("提示:开启“黄金时代“,文明值、技能值增速提高增速提高15%。");
 			_goldTime.GetComponent<UIToolTip> ().SetType (TipStyle.YG_GoldTime);
 		}
@@ -134,23 +123,14 @@ public class UIQuestionTip : MonoBehaviour {
 			{
 				LiangzuFrame.currentStep = MuseumStep.ShowGuliToolTip;
 			}
-			Object obj = Resources.Load("prefab/Get");
-			GameObject go = Instantiate(obj) as GameObject;
-			go.transform.SetParent(_bg.transform, false);
+			GameObject go=_uiManager.LoadPrefab("Get",fileAddress.Com,true);
 			go.GetComponent<UIHaveSome>().SetText("获得道具:石头+" + num);
-
-			Object obj3 = Resources.Load("prefab/wood");
-			GameObject go3 = Instantiate(obj3) as GameObject;
-			go3.transform.SetParent(_bg.transform, false);
+			GameObject go3 = _uiManager.LoadPrefab ("wood",fileAddress.Com,true);
 		}
 		else if(_type == ResourceType.LZ_cai)
 		{
 			ResourceManager._chooseResource.GetComponent<RawImage>().texture = Resources.Load("Grass2/" + 1) as Texture;
-
-
-			Object obj2 = Resources.Load("prefab/ToolTip");
-			GameObject go2 = Instantiate(obj2) as GameObject;
-			go2.transform.SetParent(_bg.transform, false);
+			GameObject go2 = _uiManager.LoadPrefab ("ToolTip",fileAddress.Com,true);
 			go2.GetComponent<UIToolTip>().SetType(0);
 			go2.GetComponent<UIToolTip>().SetTitle("新科技");
 			go2.GetComponent<UIToolTip>().SetContent("制陶术");
