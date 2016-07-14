@@ -59,7 +59,7 @@ public class YG_Little : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,
 				Object it = Resources.Load ("prefabs/YG_Prefabs/YG_Ore");
 				GameObject equip = Instantiate (it) as GameObject;
 				_instance.Get_Props (equip);
-				ResourceManager._totalEquipement.Add (equip);
+				ResourceManager._totalEquipement.Add ("prefabs/YG_Prefabs/YG_Ore");
 				YG_Data.Have_Ore = true;
 				YG_Data.Have_iron = true;
 			}

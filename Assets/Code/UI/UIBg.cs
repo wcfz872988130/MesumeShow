@@ -10,6 +10,7 @@ public class UIBg : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		ResourceManager.HiStage = 4;
+		ResourceManager.nextScene = "Level3";
 		instance = ShowStage.GetShowStage ();
 		_uimanager=UI_Manager.GetUIManager();
 	}

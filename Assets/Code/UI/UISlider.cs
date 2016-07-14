@@ -29,30 +29,32 @@ public class UISlider : MonoBehaviour {
 			//Object it = Resources.Load ("prefab/china_daoju");
 			//GameObject equip = Instantiate (it) as GameObject;
 			GameObject equip=_uimanager.LoadPrefab("china_daoju",fileAddress.Com,false);
+			ResourceManager._totalEquipement.Add ("prefab/china_daoju");
 			_instance.Get_Props (equip);
-			ResourceManager._totalEquipement.Add (equip);
 
 			_uimanager.LoadPrefab ("China",fileAddress.Com,true);
 			GameObject skillTree = GameObject.Find ("Canvas/bg/SkillTree");
-			GameObject content3 = skillTree.Find ("content/Skill2");
-			if (content3 != null)
-				content3.GetComponent<UISkillTree> ().changeInteractable (2);
-			if(content3 !=null)
-				_Instance.ShowQuestionTips();
+			if (skillTree != null) {
+				GameObject content3 = skillTree.transform.Find ("content/Skill2").gameObject;
+				if (content3 != null)
+					skillTree.GetComponent<UISkillTree> ().changeInteractable (2);
+				if(content3 !=null)
+					_Instance.ShowQuestionTips();
+			}
 
 			//lz
-			GameObject content4 = GameObject.Find("Canvas/bg/SkillTree_lz/content/Skill2");
+			GameObject content4 = GameObject.Find("Canvas/bg/SkillTree_lz/content/Skill1");
 			if(content4 != null)
 				content4.GetComponent<Button>().interactable = false;
-
-			if (content4 != null)
-			{
-				Debug.Log("!=NULL");
-				GameObject go2=_uimanager.LoadPrefab("ToolTip",fileAddress.Com,true);
-				go2.GetComponent<UIToolTip>().SetType(TipStyle.LZ_fuhaoshu);
-				go2.GetComponent<UIToolTip>().SetTitle("新科技");
-				go2.GetComponent<UIToolTip>().SetContent("符号术");
-			}
+			LiangzuFrame.currentStep = MuseumStep.ShowBuildHouseToolTip;
+//			if (content4 != null)
+//			{
+//				Debug.Log("!=NULL");
+//				GameObject go2=_uimanager.LoadPrefab("ToolTip",fileAddress.Com,true);
+//				go2.GetComponent<UIToolTip>().SetType(TipStyle.LZ_fuhaoshu);
+//				go2.GetComponent<UIToolTip>().SetTitle("新科技");
+//				go2.GetComponent<UIToolTip>().SetContent("符号术");
+//			}
 
 
 		}

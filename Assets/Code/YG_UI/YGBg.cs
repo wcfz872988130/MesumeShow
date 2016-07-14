@@ -17,6 +17,14 @@ public class YGBg : MonoBehaviour {
 		ResourceManager.HiStage = 2;
 		instance = ShowStage.GetShowStage ();
 		_instance=UIEquipment.GetUIEquipement();
+
+		foreach(string equipName in ResourceManager._totalEquipement)
+		{
+			GameObject obj = Resources.Load (equipName) as GameObject;
+			GameObject eqiup=Instantiate (obj);
+			_instance.Get_Props (eqiup);
+		}
+
 		GameObject obj1 = Resources.Load ("prefabs/YG_Prefabs/Iron") as GameObject;
 		_iron = Instantiate (obj1);
 		GameObject obj2 = Resources.Load ("prefabs/YG_Prefabs/Tange") as GameObject;

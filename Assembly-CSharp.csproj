@@ -72,6 +72,7 @@
      <Compile Include="Assets\Code\YG_UI\YGBg.cs" />
      <Compile Include="Assets\Code\YG_UI\YG_Data.cs" />
      <Compile Include="Assets\Code\YG_UI\YG_Little.cs" />
+     <Compile Include="Assets\Code\common\EndPanel.cs" />
      <Compile Include="Assets\Code\common\MuseumFrame.cs" />
      <Compile Include="Assets\Code\common\ResourceManager.cs" />
      <Compile Include="Assets\Code\common\UIEquipment.cs" />
@@ -80,6 +81,7 @@
      <Compile Include="Assets\Code\common\UIHaveSome.cs" />
      <Compile Include="Assets\Code\common\UIQuestionTip.cs" />
      <Compile Include="Assets\Code\common\UIResult.cs" />
+     <Compile Include="Assets\Code\common\UIStar.cs" />
      <Compile Include="Assets\Code\common\UIToolTip.cs" />
      <Compile Include="Assets\Code\common\UI_Manager.cs" />
      <Compile Include="Assets\Scripts\AnimationControl.cs" />

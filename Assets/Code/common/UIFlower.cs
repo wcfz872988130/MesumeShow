@@ -43,7 +43,7 @@ public class UIFlower : MonoBehaviour {
 
 	public void ClickHelp()
 	{ 
-		GameObject Reader = GameObject.Find ("Canvas/bg/PDFReader");
+		GameObject Reader = GameObject.Find ("Canvas/PDFReader");
 		Reader.GetComponent<RectTransform>().DOAnchorPos3D (enter_end_pos, enter_duringTime);
 		//Reader.SetActive (true);
 		Reader.GetComponent<RectTransform>().SetAsLastSibling();

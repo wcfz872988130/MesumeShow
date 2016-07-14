@@ -10,8 +10,10 @@ public class ResourceManager{
 	public static bool _KillHorse=false;
 	public static bool _hasBuilt=false;
     public static int HiStage = 0;
-	public static int Score=20;
-	public static List<GameObject> _totalEquipement=new List<GameObject>();
+	public static int Score=30;
+	public static List<string> _totalEquipement=new List<string>();
+
+	public static string nextScene="";
 
 	//lz
 	public static int _shiCount = 0;

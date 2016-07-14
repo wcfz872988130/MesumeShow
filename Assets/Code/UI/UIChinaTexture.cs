@@ -21,10 +21,10 @@ public class UIChinaTexture : MonoBehaviour {
         GameObject china = GameObject.Find("Canvas/bg/China(Clone)");
         Debug.Log("lalalalalalla");
         china.GetComponent<RawImage>().texture = go.GetComponent<RawImage>().mainTexture;
+		StartCoroutine (FinishGame());
 		if(co==false)
 		{
 			co = true;
-			StartCoroutine (FinishGame());
 		}
     }
 

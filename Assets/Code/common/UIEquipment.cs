@@ -8,9 +8,6 @@ public class UIEquipment : MonoBehaviour {
 	private static UIEquipment _Instance;
 	// Use this for initialization
 	void Start () {
-		foreach (GameObject equip in ResourceManager._totalEquipement) {
-			Get_Props (equip);
-		}
 	}
 	
 	// Update is called once per frame

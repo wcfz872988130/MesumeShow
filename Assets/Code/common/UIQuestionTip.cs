@@ -87,6 +87,7 @@ public class UIQuestionTip : MonoBehaviour {
 			ResourceManager._treeCount += num;
 			if(ResourceManager._treeCount>=10)
 			{
+				ResourceManager._treeCount -= 10;
                 MuseumFrame.currentStep = MuseumStep.ShowBuildHouseToolTip;
 			}
 			GameObject go = _uiManager.LoadPrefab ("Get",fileAddress.Com,true);
@@ -111,7 +112,7 @@ public class UIQuestionTip : MonoBehaviour {
 		}
 		else if(_type==ResourceType.Finish)
 		{
-			SceneManager.LoadSceneAsync ("End");
+			_uiManager.LoadPrefab("EndPanel",fileAddress.HMD,true);
 		}
 		else if (_type == ResourceType.LZ_shi)
 		{
@@ -129,13 +130,12 @@ public class UIQuestionTip : MonoBehaviour {
 		}
 		else if(_type == ResourceType.LZ_cai)
 		{
-			ResourceManager._chooseResource.GetComponent<RawImage>().texture = Resources.Load("Grass2/" + 1) as Texture;
-			GameObject go2 = _uiManager.LoadPrefab ("ToolTip",fileAddress.Com,true);
-			go2.GetComponent<UIToolTip>().SetType(0);
-			go2.GetComponent<UIToolTip>().SetTitle("新科技");
-			go2.GetComponent<UIToolTip>().SetContent("制陶术");
-
-			ResourceManager._knowzhitaoshu = 1;
+			ResourceManager._chooseResource.GetComponent<RawImage>().texture = Resources.Load("LZ_Textures/" + ResourceManager._chooseResource.name) as Texture;
+			if(ResourceManager._knowzhitaoshu==0)
+			{
+				LiangzuFrame.currentStep = MuseumStep.ShowQuestionTip;
+				//ResourceManager._knowzhitaoshu = 1;
+			}
 		}
     }
 

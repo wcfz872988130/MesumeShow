@@ -7,15 +7,26 @@ public class LiangzuFrame : MonoBehaviour
     //ui
     public GameObject _ui;
     GameObject _bg;
-
-    public static MuseumStep currentStep = MuseumStep.Entry;
+	private UIEquipment _equipInstance;
+	private ShowStage _instance;
+    public static MuseumStep currentStep;
 
     // Use this for initialization
     void Start()
     {
         _bg = _ui.transform.FindChild("bg").gameObject;
         ResourceManager._bg = _bg;
-
+		ResourceManager.nextScene = "Level2";
+		_instance = ShowStage.GetShowStage ();
+		currentStep=MuseumStep.Entry;
+		ResourceManager.HiStage = 3;
+		ResourceManager.Score = 52;
+		_equipInstance = UIEquipment.GetUIEquipement ();
+		foreach (string equipName in ResourceManager._totalEquipement) {
+			GameObject obj = Resources.Load (equipName) as GameObject;
+			GameObject eqiup=Instantiate (obj);
+			_equipInstance.Get_Props (eqiup);
+		}
     }
 
     // Update is called once per frame
@@ -51,6 +62,10 @@ public class LiangzuFrame : MonoBehaviour
                 StartCoroutine(ShowBuildHouseToolTip());
                 currentStep = MuseumStep.Wait;
                 break;
+			case MuseumStep.ShowQuestionTip:
+				StartCoroutine (ShowQuestionTip ());
+				currentStep = MuseumStep.Wait;
+				break;
             default:
                 Debug.Log("default");
                 break;
@@ -70,9 +85,9 @@ public class LiangzuFrame : MonoBehaviour
         Object obj = Resources.Load("prefab/ToolTip");
         GameObject go = Instantiate(obj) as GameObject;
         go.GetComponent<UIToolTip>().SetType(TipStyle.LZ_Resource);
-        go.GetComponent<UIToolTip>().SetContent("发展农业");
+		go.GetComponent<UIToolTip> ().SetTitle ("");
+		go.GetComponent<UIToolTip>().SetContent(@"主人，经济基础决定上层建筑，想要让您的文明良好发展，请先发展农业。");
         go.transform.SetParent(_bg.transform, false);
-
     }
 
     void ShowResource()
@@ -88,9 +103,9 @@ public class LiangzuFrame : MonoBehaviour
         go2.transform.SetParent(_bg.transform, false);
         go2.GetComponent<UIToolTip>().SetType(TipStyle.LZ_CCC);
         go2.GetComponent<UIToolTip>().SetTitle("有新的技能可以发展");
-        go2.GetComponent<UIToolTip>().SetContent("介绍：发展技能“ligenshu”，发展该技能可将骨头制作成骨耜，骨耜看上去很像现代的锹或铲，它的主要用途是松土，能够提高农业劳动生产率。");
-
+		go2.GetComponent<UIToolTip>().SetContent("介绍：发展技能“犁耕术”：良渚文化遗址出土了大量石制农具，表明农业已经发展到犁耕农业。农业文化的先进自然伴随着相关教育的发展。");
         ResourceManager._knowligen= 1;
+		_instance.AddStage ();
     }
 
     IEnumerator ShowBuildHouseToolTip()
@@ -100,12 +115,22 @@ public class LiangzuFrame : MonoBehaviour
         Object obj2 = Resources.Load("prefab/ToolTip");
         GameObject go2 = Instantiate(obj2) as GameObject;
         go2.transform.SetParent(_bg.transform, false);
-        go2.GetComponent<UIToolTip>().SetType(TipStyle.HMD_Build);
+		go2.GetComponent<UIToolTip>().SetType(TipStyle.LZ_fuhaoshu);
         go2.GetComponent<UIToolTip>().SetTitle("有新的技能可以发展");
-        go2.GetComponent<UIToolTip>().SetContent("介绍：发展技能“榫卯技术”，可用于制造河姆渡的干栏式建筑；咱们河姆人的房舍建筑以大小木桩为基础，做成高于地面的基座，并在建造中较多采用榫卯技术。这种干栏式建筑比同时期黄河流域的半地穴建筑复杂得多；");
-        ResourceManager.HiStage += 1;
-        //UIBg.ChangeStage(ResourceManager.HiStage);
+		go2.GetComponent<UIToolTip>().SetContent("介绍：发展技能“符号术”；中国史前文化中大量存在于陶器、玉器上的刻划符号应是汉字的源头。良渚出土的一些陶器、玉器上已出现了不少的单个或成组具有表意功能的刻划符号，可称之为“原始文字”。");
+		_instance.AddStage ();
     }
 
+	IEnumerator ShowQuestionTip()
+	{
+		yield return new WaitForSeconds(2.0f);
+		Object obj2 = Resources.Load("prefab/ToolTip");
+		GameObject go2 = Instantiate(obj2) as GameObject;
+		go2.transform.SetParent(_bg.transform, false);
+		go2.GetComponent<UIToolTip>().SetType(TipStyle.LZ_zhitaoshu);
+		go2.GetComponent<UIToolTip>().SetTitle("有新的技能可以发展");
+		go2.GetComponent<UIToolTip>().SetContent("介绍：发展技能“制陶术”；良渚文化时期的手工制品的技术成分含量更高：陶器品种多样，用途分明，有壶、罐、尊、簋、鼎、豆、皿、盆、盘等，贵族墓中出土的玉器种类达20余种，有琮、璧、钺、锥形器、三叉形器、冠形器、璜、纺轮、圆牌饰等，还刻有花纹。");
+		_instance.AddStage();
+	}
 
 }

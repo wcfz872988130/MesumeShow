@@ -4,16 +4,21 @@ using System.Collections;
 
 public class UISkillTree_lz : MonoBehaviour
 {
+	Texture skill2;
+	Texture skill3;
+	Texture skill_guli;
     void Start()
     {
-
+		skill2 = Resources.Load ("pic/skill2") as Texture;
+		skill3 = Resources.Load ("pic/skill3") as Texture;
+		skill_guli = Resources.Load ("pic/skill_guli") as Texture;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (ResourceManager._knowligen == 1)
-            SkillEnableToClick(0);
+        //if (ResourceManager._knowligen == 1)
+       //     SkillEnableToClick(0);
         if (ResourceManager._knowzhitaoshu == 1)
             SkillEnableToClick(1);
         if (ResourceManager._knowfuhaoshu == 1)
@@ -81,6 +86,11 @@ public class UISkillTree_lz : MonoBehaviour
         Debug.Log("content/Skill" + i);
         transform.FindChild("content/Skill" + i).GetComponent<Button>().interactable = true;
         transform.FindChild("content/Skill" + i + "/Text").GetComponent<Text>().color = Color.white;
-
+		transform.Find ("content/Skill" + i +"/IconBg/RawImage").gameObject.GetComponent<RawImage> ().texture = skill2;
+		ResourceManager._knowzhitaoshu = -1;
+		if (i == 2) {
+			transform.Find ("content/Skill" + i +"/IconBg/RawImage").gameObject.GetComponent<RawImage> ().texture = skill3;
+			ResourceManager._knowfuhaoshu = -1;
+		}
     }
 }
